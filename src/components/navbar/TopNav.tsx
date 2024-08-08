@@ -27,7 +27,7 @@ export default function TopNav() {
       <NavbarBrand as={Link} href={"/"}>
         <GiLovers size={40} className="text-gray-200" />
         <div className="font-bold text-3xl flex">
-          <span className="text-gray-900">Date</span>
+          <span className="text-slate-600">Date</span>
           <span className="text-gray-200">Mate</span>
         </div>
       </NavbarBrand>
