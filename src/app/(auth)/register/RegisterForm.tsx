@@ -8,6 +8,7 @@ import { RegisterSchema, registerSchema } from "@/lib/schemas/RegisterSchema";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { EyeSlashFilledIcon } from "@/components/passwordVisibilityIcon/EyeSlashedFilledIcon";
 import { EyeFilledIcon } from "@/components/passwordVisibilityIcon/EyeFilledIcon";
+import Link from "next/link";
 
 export default function RegisterForm() {
   const {
@@ -103,14 +104,15 @@ export default function RegisterForm() {
                 className="w-1/2 justify-center bg-slate-500 text-slate-50"
                 type="submit"
               >
-                Login
+                Register
               </Button>
               <Button
+                as={Link}
+                href="/login"
                 className="w-1/2 justify-center  bg-slate-50 text-slate-500"
                 variant="bordered"
-                type="submit"
               >
-                Forgot Password
+                Login
               </Button>
             </div>
           </div>
