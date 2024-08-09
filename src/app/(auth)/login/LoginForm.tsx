@@ -4,8 +4,10 @@ import { Button, Card, CardBody, CardHeader, Input } from "@nextui-org/react";
 import React from "react";
 import { useForm } from "react-hook-form";
 import { GiPadlock } from "react-icons/gi";
-import { LoginSchema, loginSchema } from "@/lib/LoginSchema";
+import { LoginSchema, loginSchema } from "@/lib/schemas/LoginSchema";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { EyeSlashFilledIcon } from "@/components/passwordVisibilityIcon/EyeSlashedFilledIcon";
+import { EyeFilledIcon } from "@/components/passwordVisibilityIcon/EyeFilledIcon";
 
 export default function LoginForm() {
   const {
@@ -20,6 +22,11 @@ export default function LoginForm() {
   const onSubmit = (data: LoginSchema) => {
     console.log(data);
   };
+
+  const [isVisible, setIsVisible] = React.useState(false);
+
+  const toggleVisibility = () => setIsVisible(!isVisible);
+
   return (
     <Card className="w-2/5 mx-auto">
       <CardHeader className="flex flex-col items-center justify-center">
@@ -46,7 +53,21 @@ export default function LoginForm() {
               defaultValue=""
               label="Password"
               variant="bordered"
-              type="password"
+              type={isVisible ? "text" : "password"}
+              endContent={
+                <button
+                  className="focus:outline-none"
+                  type="button"
+                  onClick={toggleVisibility}
+                  aria-label="toggle password visibility"
+                >
+                  {isVisible ? (
+                    <EyeSlashFilledIcon className="text-2xl text-default-400 pointer-events-none" />
+                  ) : (
+                    <EyeFilledIcon className="text-2xl text-default-400 pointer-events-none" />
+                  )}
+                </button>
+              }
               {...register("password")}
               isInvalid={!!errors.password}
               errorMessage={errors.password?.message as string}
