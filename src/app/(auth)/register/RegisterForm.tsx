@@ -4,7 +4,7 @@ import { Button, Card, CardBody, CardHeader, Input } from "@nextui-org/react";
 import React from "react";
 import { useForm } from "react-hook-form";
 import { GiPadlock } from "react-icons/gi";
-import { RegisterSchema } from "@/lib/schemas/RegisterSchema";
+import { registerSchema, RegisterSchema } from "@/lib/schemas/RegisterSchema";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { EyeSlashFilledIcon } from "@/components/passwordVisibilityIcon/EyeSlashedFilledIcon";
 import { EyeFilledIcon } from "@/components/passwordVisibilityIcon/EyeFilledIcon";
@@ -18,7 +18,7 @@ export default function RegisterForm() {
     setError,
     formState: { errors, isValid, isSubmitting },
   } = useForm<RegisterSchema>({
-    // resolver: zodResolver(registerSchema),
+    resolver: zodResolver(registerSchema),
     mode: "onTouched",
   });
 
