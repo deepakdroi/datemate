@@ -10,6 +10,7 @@ import { EyeSlashFilledIcon } from "@/components/passwordVisibilityIcon/EyeSlash
 import { EyeFilledIcon } from "@/components/passwordVisibilityIcon/EyeFilledIcon";
 import { signInUser } from "@/app/actions/authActions";
 import { useRouter } from "next/navigation";
+import { toast } from "react-toastify";
 
 export default function LoginForm() {
   const router = useRouter();
@@ -28,7 +29,7 @@ export default function LoginForm() {
       router.push("/members");
     } else {
       console.log(result.error);
-      alert("Unable to login.");
+      toast.error(result.error as string);
     }
   };
 
