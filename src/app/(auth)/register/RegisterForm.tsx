@@ -10,6 +10,7 @@ import { EyeSlashFilledIcon } from "@/components/passwordVisibilityIcon/EyeSlash
 import { EyeFilledIcon } from "@/components/passwordVisibilityIcon/EyeFilledIcon";
 import Link from "next/link";
 import { registerUser } from "@/app/actions/authActions";
+import { handleFormServerErrors } from "@/lib/util";
 
 export default function RegisterForm() {
   const {
@@ -28,19 +29,7 @@ export default function RegisterForm() {
     if (result.status === "success") {
       console.log("user created successfully.");
     } else {
-      if (Array.isArray(result.error)) {
-        result.error.forEach((e) => {
-          const fieldName = e.path.join(".") as
-            | "name"
-            | "age"
-            | "gender"
-            | "email"
-            | "password";
-          setError(fieldName, { message: e.message });
-        });
-      } else {
-        setError("root.serverError", { message: result.error });
-      }
+      handleFormServerErrors(result, setError);
     }
   };
 
