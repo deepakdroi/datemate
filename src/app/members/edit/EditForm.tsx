@@ -27,7 +27,7 @@ export default function EditForm({ member }: Props) {
     setError,
     formState: { isValid, isDirty, isSubmitting, errors },
   } = useForm<MemberEditSchema>({
-    // resolver: zodResolver(memberEditSchema),
+    resolver: zodResolver(memberEditSchema),
     mode: "onTouched",
   });
 
