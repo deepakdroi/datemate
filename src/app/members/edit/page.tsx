@@ -1,7 +1,6 @@
 import { getAuthUserId } from "@/app/actions/authActions";
 import { getMemberByUserId } from "@/app/actions/memberAction";
 import { CardBody, CardHeader, Divider } from "@nextui-org/react";
-import { get } from "http";
 import { notFound } from "next/navigation";
 import React from "react";
 import EditForm from "./EditForm";

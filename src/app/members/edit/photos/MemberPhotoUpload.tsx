@@ -19,7 +19,7 @@ export default function MemberPhotoUpload() {
     }
   };
   return (
-    <div className="pt-5 pl-5">
+    <div>
       <ImageUploadbutton onUploadImage={onAddImage} />
     </div>
   );
