@@ -4,6 +4,7 @@ import { auth, signIn, signOut } from "@/auth";
 import { prisma } from "@/lib/prisma";
 import { LoginSchema } from "@/lib/schemas/LoginSchema";
 import { registerSchema, RegisterSchema } from "@/lib/schemas/RegisterSchema";
+import { ActionResult } from "@/types";
 import { User } from "@prisma/client";
 import bcrypt from "bcryptjs";
 import { AuthError } from "next-auth";
